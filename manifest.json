@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+
+  "name": "Github Source Notes",
+  "description": "Take notes when reading source codes on Github",
+  "version": "0.0.1",
+  "icons": { "32": "images/icon32.png", "128": "images/icon128.png" },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["javascript/content.js"]
+    }
+  ],
+  "permissions": [
+  ],
+  "browser_action": {
+    "default_icon": "images/icon32.png",
+    "default_popup": "popup.html"
+  }
+}
