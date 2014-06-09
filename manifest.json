@@ -4,7 +4,13 @@
   "name": "Github Source Notes",
   "description": "Take notes when reading source codes on Github",
   "version": "0.0.1",
-  "icons": { "32": "images/icon32.png", "128": "images/icon128.png" },
+
+  // http://www.easyicon.net/language.en/1159889-note_icon.html
+  "icons": {
+    "16": "images/icon16.png",
+    "32": "images/icon32.png",
+    "128": "images/icon128.png"
+  },
   "content_scripts": [
     {
       "matches": ["https://github.com/*"],
