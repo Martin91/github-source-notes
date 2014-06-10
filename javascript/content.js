@@ -2,24 +2,33 @@
   var extractNumberFromString = function(str) {
     return parseInt(str.replace(/\D+/, ''));
   };
+  var analysisSelectedLines = function() {
+    // href is something like https://github.com/.../.../jscii.js#L12-L15
+    var href = location.href;
+    var lineRange = href.split('#')[1];
+
+    if(lineRange === undefined) {
+      return [];
+    }
+
+    var lines = [];
+    lineRange = lineRange.split('-');
+    while(lineRange.length) {
+      lines.push(extractNumberFromString(lineRange.pop()));
+    }
+
+    return lines.reverse();
+  }
 
   var lineNumsColumnContainer = document.getElementsByClassName('blob-line-nums')[0];
 
   lineNumsColumnContainer.addEventListener('click', function(event){
-    var codeBody = document.getElementsByClassName('code-body')[0];
-    var lines = codeBody.getElementsByClassName('line');
+    var selectedLines = analysisSelectedLines();
 
-    var selectedLines = [];
-    for(var i = 0; i < lines.length -1; i++) {
-      // Lines selected with style attribute for background-color
-      var style = lines[i].attributes.style;
-      if(style && style.value.search(/background-color:/) != -1 ) {
-        selectedLines.push(lines[i]);
-      }
-    }
+    if(selectedLines.length === 0) { return; }
 
-    var startLine = extractNumberFromString(selectedLines[0].id);
-    var endLine = extractNumberFromString(selectedLines[selectedLines.length - 1].id);
+    var startLine = selectedLines[0];
+    var endLine = selectedLines[selectedLines.length - 1];
 
     if(startLine === endLine) {
       alert("Selected line is:" + startLine);
