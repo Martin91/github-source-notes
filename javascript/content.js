@@ -22,7 +22,7 @@
 
       console.log(selectedLineCodes);
 
-      event.preventDefault();
+      return false;
     });
 
     return _addNoteNode;

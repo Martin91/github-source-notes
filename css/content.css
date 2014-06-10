@@ -1,6 +1,7 @@
 .blob-line-nums a.add-note {
   display: inline-block;
   font-weight: bold;
-  color: red;
+  color: #dd1144;
   padding: 0;
+  background-color: black;
 }
