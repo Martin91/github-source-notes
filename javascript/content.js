@@ -5,6 +5,26 @@
     _addNoteNode.className = 'add-note';
     _addNoteNode.innerText = ' + ';
 
+    _addNoteNode.addEventListener('click', function(event){
+      // 2. get codes between start and end
+      // 3. get location
+      // 4. post data to the backend
+      var selectedLineCodes = [];
+
+      for(i = startLine; i <= endLine; i++) {
+        var line = document.getElementById('LC'+i);
+        selectedLineCodes.push(line);
+      }
+
+      var currentLocation = location.href.split('#')[0];
+
+      // Post datas here
+
+      console.log(selectedLineCodes);
+
+      event.preventDefault();
+    });
+
     return _addNoteNode;
   };
 
