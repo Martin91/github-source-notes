@@ -3,12 +3,7 @@
   var addNoteNode = function() {
     var _addNoteNode = document.createElement('a');
     _addNoteNode.className = 'add-note';
-
-    var addNoteImageNode = document.createElement('img');
-    // https://developer.chrome.com/extensions/i18n#overview-predefined
-    addNoteImageNode.src = 'chrome-extension://__MSG_@@extension_id__/images/note_add.png';
-
-    _addNoteNode.appendChild(addNoteImageNode);
+    _addNoteNode.innerText = ' + ';
 
     return _addNoteNode;
   };
@@ -56,12 +51,6 @@
 
     startLine = selectedLines[0];
     endLine = selectedLines[selectedLines.length - 1];
-
-    if(startLine === endLine) {
-      alert("Selected line is:" + startLine);
-    } else {
-      alert("Selected lines is from " + startLine + ' to ' + endLine);
-    }
 
     prependAddNoteNode();
   });
