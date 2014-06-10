@@ -14,7 +14,8 @@
   "content_scripts": [
     {
       "matches": ["https://github.com/*"],
-      "js": ["javascript/content.js"]
+      "js": ["javascript/content.js"],
+      "css": ["css/content.css"]
     }
   ],
   "permissions": [
